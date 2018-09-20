@@ -47,8 +47,12 @@ document.querySelector("[for="+input.target.id+"]") .appendChild(document.create
             pf.validarUsuario = true;
             break;
           }
+          }
 
-      }
+      } else {
+        document.querySelector("[for="+input.target.id+"] .error").parentNode.removeChild(document.querySelector("[for=" + input.target.id+"] .error"))
+      
+
     }
   }
 

@@ -43,7 +43,7 @@ switch($_GET["op"]){
 
          while ($reg=$answer->fetch_object()){
  			   $data[]=array(
-             "0"=>$reg->idcategoria,// usar mismos nombre de la tabla para llenar los indices del array
+             "0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>',// usar mismos nombre de la tabla para llenar los indices del array
              "1"=>$reg->nombre,
              "2"=>$reg->descripcion,
              "3"=>$reg->condicion

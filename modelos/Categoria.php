@@ -32,7 +32,7 @@ public function desactivar ($idcategoria)
 // metodo para volver activar categoria
 public function activar ($idcategoria)
 {
-    $sqltres= "UPDATE categoria SET condicion='0' WHERE idcategoria='$idcategoria'";
+    $sqltres= "UPDATE categoria SET condicion='1' WHERE idcategoria='$idcategoria'";
     return ejecutarConsulta($sqltres);
 
 }

@@ -99,4 +99,31 @@ function mostrar(idcategoria) {
         $("#idcategoria").val(data.idcategoria);
     })
 }
+// funcion desactivar registos
+function desactivar(idcategoria) {
+    bootbox.confirm("¿Esta seguro que desea desactivar la categoria?", function(result) {
+        if (result) {
+            $.post("../ajax/categoria.php?op=desactivar", {
+                idcategoria: idcategoria
+            }, function (e) {
+                bootbox.alert(e);
+                tabla.ajax.reload();
+               // DataTable (). ajax.reload ();//  sugerencia en foro oficial
+              
+            });
+        }
+    })
+}
+// funcion activar categoria
+function activar(idcategoria){
+    bootbox.confirm("Vas Activar la Categoria", function(result){
+        if(result)
+        {
+            $.post("../ajax/categoria.php?op=activar", {idcategoria : idcategoria}, function(e){
+                bootbox.alert(e);
+                tabla.ajax.reload();
+            })
+        }else { bootbox.alert("has cancelado la activacion..")}
+    })
+}
 init();

@@ -79,7 +79,7 @@ function guardaryeditar(e) {
         success: function (datos) {
             bootbox.alert(datos);
             mostrarform(false);
-            tabla.ajax.reload();
+            table.ajax.reload();
         }
 
     });
@@ -107,7 +107,8 @@ function desactivar(idcategoria) {
                 idcategoria: idcategoria
             }, function (e) {
                 bootbox.alert(e);
-                tabla.ajax.reload();
+             
+                table.ajax.reload();
                // DataTable (). ajax.reload ();//  sugerencia en foro oficial
               
             });
@@ -121,7 +122,7 @@ function activar(idcategoria){
         {
             $.post("../ajax/categoria.php?op=activar", {idcategoria : idcategoria}, function(e){
                 bootbox.alert(e);
-                tabla.ajax.reload();
+                table.ajax.reload();
             })
         }else { bootbox.alert("has cancelado la activacion..")}
     })

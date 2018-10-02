@@ -38,7 +38,7 @@ document.querySelector("[for="+input.target.id+"]") .appendChild(document.create
 
       switch (input.target.id) {
         case "nombre":
-          if (pf.valor.length < 2 || pf.valor.length > 10) {
+          if (pf.valor.length < 2 || pf.valor.length > 20) {
             document.querySelector("[for=" + input.target.id + "] .error").innerHTML = '<span style="color:red">* Error al Ingresar los datos:' + input.target.placeholder + '</span>';
             pf.validarUsuario = false;
           } else {

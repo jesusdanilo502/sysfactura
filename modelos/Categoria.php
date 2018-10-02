@@ -49,6 +49,13 @@ public function listar()
     $sqlcinco = "SELECT * FROM categoria";
     return ejecutarConsulta($sqlcinco);
 }
+//Implemetar un mètodo para listar los registros y mostrar en un select
+public function select()
+{
+    $sqlsix = "SELECT * FROM categoria where condicion=1";
+    ;
+    return ejecutarConsulta($sqlsix);
+}
 }
 
 

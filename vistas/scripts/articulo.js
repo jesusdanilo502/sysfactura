@@ -8,6 +8,12 @@ function init() {
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
     })
+    // cargamos los item al select  de mi vista categoria
+    $.post("../ajax/articulo.php?op=selectCategoria", function(r){
+        $("#idcategoria").html(r);
+        $('#idcategoria').selectpicker('refresh');
+
+});
 
 }
 // funcion limpiar

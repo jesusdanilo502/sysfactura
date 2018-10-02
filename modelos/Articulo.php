@@ -11,7 +11,8 @@ class Articulo
 
     public function insertar($idcategoria,$codigo,$nombre,$stock,$descripcion,$imagen)
     {
-        $sql= "INSERT INTO articulo (idcategoria,codigo,nombre,stock,descripcion,condicion) VALUES ('$idcategoria','$codigo','$nombre','$stock','$descripcion','$imagen','1')";
+        $sql="INSERT INTO articulo (idcategoria,codigo,nombre,stock,descripcion,imagen,condicion)
+		VALUES ('$idcategoria','$codigo','$nombre','$stock','$descripcion','$imagen','1')";
         return ejecutarConsulta($sql);
     }
     // Implementamos un mètodo para editar categoria

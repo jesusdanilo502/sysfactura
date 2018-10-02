@@ -42,15 +42,31 @@ require 'header.php';
                     </div>
                     <div class="panel-body" style="height: 400px;" id="formularioregistros">
                         <form name="formulario" id="formulario"method="POST">
-                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label  for="nombre" >Nombre(*):<span class="obligatorio">  *Campo Obligatorio..</span></label>
-                            <input type="hidden" name="idcategoria" id="idcategoria"  value="">
+                          <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label >Nombre(*):</label>
+                            <input type="hidden" name="idarticulo" id="idarticulo"  value="">
                             <input type="text" class="form-control validar" name="nombre" id="nombre"  maxlength="50" placeholder="Nombre">
                             
                           </div>
+                          <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Categoria(*):</label>
+                            <select id="idcategoria" name="idcategoria" class="form-control selectpicker" data-live-search="true" required></select>
+                          </div>
+                          <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Stock(*):</label>
+                            <input type="number" class="form-control" name="stock" id="stock" required>
+                          </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label for="descripcion">Descripción:<span class="obligatorio">  *Campo Obligatorio..</span></label>
+                            <label>Descripción:</label>
                             <input type="text" class="form-control validar" name="descripcion" id="descripcion" maxlength="256" placeholder="Descripción" value="">
+                          </div>
+                          <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label >Imagen(*):</label>
+                            <input type="file" class="form-control" name="imagen" id="imagen">
+                          </div>
+                          <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label >Còdigo Barras(*):</label>
+                            <input type="text" class="form-control" name="codigo" id="codigo" required>
                           </div>
                           <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>

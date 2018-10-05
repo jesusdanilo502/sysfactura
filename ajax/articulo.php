@@ -9,7 +9,7 @@ $idcategoria= isset($_POST["idcategoria"])? limpiarCadena($_POST["idcategoria"])
 $codigo= isset($_POST["codigo"])? limpiarCadena($_POST["codigo"]): "";
 $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $stock=isset($_POST["stock"])? limpiarCadena($_POST["stock"]):"";
-$description=isset($_POST["descripcion"])? limpiarCadena($_POST["descripcion"]):"";
+$descripcion=isset($_POST["descripcion"])? limpiarCadena($_POST["descripcion"]):"";
 $imagen=isset($_POST["imagen"])? limpiarCadena($_POST["imagen"]):"";
 
 
@@ -83,5 +83,15 @@ switch($_GET["op"]){
           echo json_encode($result);
          
         break;
+        case "selectCategoria":
+        require_once "../modelos/Categoria.php";
+        $categoria = new Categoria();
     
+        $rspta = $categoria->select();
+    
+        while ($reg = $rspta->fetch_object())
+            {
+              echo '<option value=' . $reg->idcategoria . '>' . $reg->nombre . '</option>';
+            }
+      break;
 }

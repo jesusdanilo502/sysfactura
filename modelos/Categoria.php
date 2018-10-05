@@ -53,7 +53,6 @@ public function listar()
 public function select()
 {
     $sqlsix = "SELECT * FROM categoria where condicion=1";
-    ;
     return ejecutarConsulta($sqlsix);
 }
 }

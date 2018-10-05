@@ -15,12 +15,14 @@ class Articulo
 		VALUES ('$idcategoria','$codigo','$nombre','$stock','$descripcion','$imagen','1')";
         return ejecutarConsulta($sql);
     }
-    // Implementamos un mètodo para editar categoria
+    // Implementamos un mètodo para editar articulos
 
 public function editar($idarticulo,$idcategoria,$codigo,$nombre,$stock,$descripcion,$imagen)
  {
-   $sqldos= "UPDATE articulo SET idcategoria='$idcategoria',codigo='$codigo',nombre=$nombre,stock=$stock,descripcion=$descripcion,imagen=$imagen  WHERE idarticulo='$idarticulo'"; 
+   $sqldos= "UPDATE articulo SET idcategoria='$idcategoria',codigo='$codigo',nombre='$nombre',stock='$stock',descripcion='$descripcion',imagen='$imagen'  WHERE idarticulo='$idarticulo'"; 
    return ejecutarConsulta($sqldos);
+   
+		return ejecutarConsulta($sql);
  }
  //implementamos mètodos para desactivar categorias
 

@@ -13,15 +13,23 @@ function init() {
         $("#idcategoria").html(r);
         $('#idcategoria').selectpicker('refresh');
 
+    
+
 });
+$("#imagenmuestra").hide();
 
 }
 // funcion limpiar
 function limpiar() {
-    $("#codigo").val("");
-    $("#nombre").val("");
-    $("#descripcion").val("");
-    $("#stock").val("");
+    
+	$("#codigo").val("");
+	$("#nombre").val("");
+	$("#descripcion").val("");
+	$("#stock").val("");
+	$("#imagenmuestra").attr("src","");
+	$("#imagenactual").val("");
+	$("#print").hide();
+	$("#idarticulo").val("");
 }
 // funcion mostrar formulario
 function mostrarform(flag) {
@@ -102,10 +110,14 @@ function mostrar(idarticulo) {
         data = JSON.parse(data);
         mostrarform(true);
         $("#idcategoria").val(data.idcategoria);
+        $("#idcategoria").selectpicker('refresh');
         $("#codigo").val(data.codigo);
         $("#nombre").val(data.nombre);
         $("#stock").val(data.stock);
         $("#descripcion").val(data.descripcion);
+        $("#imagenmuestra").show();
+		$("#imagenmuestra").attr("src","../files/articulos/"+data.imagen);
+		$("#imagenactual").val(data.imagen);
         $("#idarticulo").val(data.idarticulo);
     })
 }

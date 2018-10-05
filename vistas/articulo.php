@@ -45,11 +45,11 @@ require 'header.php';
                           <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label >Nombre(*):</label>
                             <input type="hidden" name="idarticulo" id="idarticulo"  value="">
-                            <input type="text" class="form-control validar" name="nombre" id="nombre"  maxlength="50" placeholder="Nombre">
+                            <input type="text" class="form-control " name="nombre" id="nombre"  maxlength="100" placeholder="Nombre" required>
                             
                           </div>
-                          <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label>Categoria(*):</label>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Categoría(*):</label>
                             <select id="idcategoria" name="idcategoria" class="form-control selectpicker" data-live-search="true" required></select>
                           </div>
                           <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -58,11 +58,13 @@ require 'header.php';
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Descripción:</label>
-                            <input type="text" class="form-control validar" name="descripcion" id="descripcion" maxlength="256" placeholder="Descripción" value="">
+                            <input type="text" class="form-control " name="descripcion" id="descripcion" maxlength="256" placeholder="Descripción" value="">
                           </div>
                           <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label >Imagen(*):</label>
                             <input type="file" class="form-control" name="imagen" id="imagen">
+                            <input type="hidden"  name="imagenactual" id="imagenactual">
+                            <img src="" width="150px" height="120px" id="imagenmuestra">
                           </div>
                           <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label >Còdigo Barras(*):</label>
@@ -88,4 +90,4 @@ require 'footer.php';
 
 ?>
 <script type="text/javascript" src="scripts/articulo.js"></script>
-<script type="text/javascript" src="scripts/validaciones.js"></script>
+

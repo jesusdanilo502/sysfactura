@@ -67,8 +67,12 @@ require 'header.php';
                             <img src="" width="150px" height="120px" id="imagenmuestra">
                           </div>
                           <div class="form-groud col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label >Còdigo Barras(*):</label>
-                            <input type="text" class="form-control" name="codigo" id="codigo" required>
+                          <label>Código:</label>
+                            <input type="text" class="form-control" name="codigo" id="codigo" placeholder="Código Barras">
+                            <button class="btn btn-success" type="button" onclick="generarbarcode()">Generar</button>
+                            <div>
+                            <svg id="barcode"></svg>
+                            </div>
                           </div>
                           <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
@@ -89,5 +93,6 @@ require 'header.php';
 require 'footer.php';
 
 ?>
+<script type="text/javascript" src="..public/js/JsBarcode.all.min.js"></script>
 <script type="text/javascript" src="scripts/articulo.js"></script>
 

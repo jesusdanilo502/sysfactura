@@ -149,4 +149,12 @@ function activar(idarticulo){
         }else { bootbox.alert("has cancelado la activacion..")}
     })
 }
+// funcion para generar còdigo de barras
+
+function generarbarcode()
+{
+	codigo=$("#codigo").val();
+	JsBarcode("#barcode", codigo);
+
+}
 init();

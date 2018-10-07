@@ -38,10 +38,13 @@ function mostrarform(flag) {
         $("#listadoregistros").hide();
         $("#formularioregistros").show();
         $("#btnGuardar").prop("disabled", false);
+        $("#btnagregar").hide();
     } else {
         $("#listadoregistros").show();
         $("#formularioregistros").hide();
-        $("#btnGuardar").prop("disabled", true);
+        $("#btnagregar").show();
+
+
     }
 }
 // funciòn cancelar form
@@ -154,7 +157,14 @@ function activar(idarticulo){
 function generarbarcode()
 {
 	codigo=$("#codigo").val();
-	JsBarcode("#barcode", codigo);
+    JsBarcode("#barcode", codigo);
+    $("#print").show();
+    
 
+}
+//Función para imprimir el Código de barras
+function imprimir()
+{
+	$("#print").printArea();
 }
 init();

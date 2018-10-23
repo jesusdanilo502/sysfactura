@@ -30,53 +30,59 @@ switch($_GET["op"]){
 			if ($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png")
 			{
 				$imagen = round(microtime(true)) . '.' . end($ext);
-				move_uploaded_file($_FILES["imagen"]["tmp_name"], "../files/articulos/" . $imagen);
+				move_uploaded_file($_FILES["imagen"]["tmp_name"], "../files/usuarios/" . $imagen);
 			}
         }
         
-         if (empty($idusuario)) {
-             $answer= $article->insertar($idcategoria,$codigo,$nombre,$stock,$descripcion,$imagen);
-             echo $answer ? "Articulo Registrado":"Articulo no se pudo Registrar";
+        //Hash SHA256 en la contraseña
+         $clavehash=hash("SHA256",$clave);
+    
+        if (empty($idusuario)){
 
-         }else{
-            
-                $answer= $article->editar($idarticulo,$idcategoria,$codigo,$nombre,$stock,$descripcion,$imagen);
-                echo $answer ? "Articulo Actualizado":"Articulo no se pudo Actualizar";
-         }
+          $answer=$usuario->insertar($nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$login,$clavehash,$imagen,$_POST['permiso']);
+          echo $answer ? "Usuario registrado" : "No se pudieron registrar todos los datos del usuario";
+        }
+        else {
+          $answer=$usuario->editar($idusuario,$nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$login,$clavehash,$imagen,$_POST['permiso']);
+          echo $answer ? "Usuario actualizado" : "Usuario no se pudo actualizar";
+        }
         break;
     
         case 'desactivar':
-          $answer= $article->desactivar($idarticulo);
-          echo $answer ? "Articuloidarticulo Desactivada" : "Articuloidarticulo no de pudo Desactivar";
+          $answer= $usuario->desactivar($idusuario);
+          echo $answer ? "usuario Desactivada" : "usuario no de pudo Desactivar";
         break;
         
         case 'activar':
-        $answer= $article->activar($idarticulo);
-          echo $answer ? "Articuloidarticulo Activada" : "Articuloidarticulo no de pudo Activar";
+        $answer= $usuario->activar($idusuario);
+          echo $answer ? "usuario Activada" : "usuario no de pudo Activar";
         break;
         case 'mostrar':
-         $answer = $article->mostrar($idarticulo);
+         $answer = $usuario->mostrar($idusuario);
          //Codificar el resultado utilizando json
          echo json_encode($answer);
         break;
         case 'listar':
-         $answer=$article->listar();
+         $answer=$usuario->listar();
          // Vamos A declarar un array
          $data= Array();
 
          while ($reg=$answer->fetch_object()){
- 			   $data[]=array(
-          "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idarticulo.')"><i class="fa fa-pencil"></i></button>'.
-          ' <button class="btn btn-danger" onclick="desactivar('.$reg->idarticulo.')"><i class="fa fa-close"></i></button>':
-          '<button class="btn btn-warning" onclick="mostrar('.$reg->idarticulo.')"><i class="fa fa-pencil"></i></button>'.
-          ' <button class="btn btn-primary" onclick="activar('.$reg->idarticulo.')"><i class="fa fa-check"></i></button>',
+          $data[]=array(
+            "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
+              ' <button class="btn btn-danger" onclick="desactivar('.$reg->idusuario.')"><i class="fa fa-close"></i></button>':
+              '<button class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
+              ' <button class="btn btn-primary" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
 
-             "1"=>$reg->nombre,
-             "2"=>$reg->categoria,
-             "3"=>$reg->codigo,
-             "4"=>$reg->stock,
-             "5"=>"<img src='../files/articulos/".$reg->imagen."' height='50px' width='50px'>",
-             "6"=>$reg->condicion?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
+          "1"=>$reg->nombre,
+          "2"=>$reg->tipo_documento,
+          "3"=>$reg->num_documento,
+          "4"=>$reg->telefono,
+          "5"=>$reg->email,
+          "6"=>$reg->login,
+          "7"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >",
+          "8"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+          '<span class="label bg-red">Desactivado</span>'
              );
          }
          $result = array(
@@ -87,15 +93,5 @@ switch($_GET["op"]){
           echo json_encode($result);
          
         break;
-        case "selectCategoria":
-        require_once "../modelos/Categoria.php";
-        $categoria = new Categoria();
-    
-        $rspta = $categoria->select();
-    
-        while ($reg = $rspta->fetch_object())
-            {
-              echo '<option value=' . $reg->idcategoria . '>' . $reg->nombre . '</option>';
-            }
-      break;
+        
 }

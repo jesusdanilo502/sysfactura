@@ -10,6 +10,11 @@ function init() {
     })
     
     $("#imagenmuestra").hide();
+
+    // mostramos los permisos
+    $.post("../ajax/usuario.php?op=permisos",function(r){
+         $("#permisos").html(r);
+    });
 }
 // funcion limpiar
 function limpiar() {

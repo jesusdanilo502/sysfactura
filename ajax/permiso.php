@@ -4,16 +4,12 @@ require_once "../modelos/Permiso.php";
 
 $permiso = new Permiso();
 
-
-
-
 switch($_GET["op"]){
     
         case 'listar':
          $answer=$permiso->listar();
          // Vamos A declarar un array
          $data= Array();
-
          while ($reg=$answer->fetch_object()){
  			   $data[]=array(
          

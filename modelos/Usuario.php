@@ -9,11 +9,22 @@ class Usuario
     }
     // implementamos un metodo para insertar registros
 
-    public function insertar($nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$login,$clave,$imagen)
+    public function insertar($nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$login,$clave,$imagen,$permisos)
     {
         $sql="INSERT INTO usuario (nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,login,clave,imagen,condicion)
 		VALUES ('$nombre','$tipo_documento','$num_documento','$direccion','$telefono','$email','$cargo','$login','$clave','$imagen','1')";
-		return ejecutarConsulta($sql);
+        //return ejecutarConsulta($sql);
+        $usuarionew = ejecutarConsulta_retornarID($sql);
+        $num_elements=0;
+        $sw = true;
+
+        while ($num_elements < count($permisos))
+        {
+        $sql_detalle= "INSERT INTO usuario_permiso(idusuario,idpermiso) VALUES ('idusuarionew', '$permisos[$num_elements]')";
+        ejecutarConsulta($sql_detalle) or $sw = false;
+            $num_elements = $num_elements + 1;
+        }
+        return $sw;
     }
     // Implementamos un mètodo para editar categoria
 

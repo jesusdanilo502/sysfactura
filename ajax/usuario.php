@@ -93,5 +93,16 @@ switch($_GET["op"]){
           echo json_encode($result);
          
         break;
-        
+
+        case 'permisos':
+		//Obtenemos todos los permisos de la tabla permisos
+		require_once "../modelos/Permiso.php";
+		$permiso = new Permiso();
+    $answer = $permiso->listar();
+     #endregion
+     while ($reg = $answer->fetch_object())
+     {
+      echo '<li> <input type="checkbox"  name="permiso[]" value="'.$reg->idpermiso.'">'.$reg->nombre.'</li>';
+     }
+    break;
 }

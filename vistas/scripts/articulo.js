@@ -122,6 +122,7 @@ function mostrar(idarticulo) {
 		$("#imagenmuestra").attr("src","../files/articulos/"+data.imagen);
 		$("#imagenactual").val(data.imagen);
         $("#idarticulo").val(data.idarticulo);
+        generarbarcode();
     })
 }
 // funcion desactivar registos

@@ -96,13 +96,34 @@ switch($_GET["op"]){
 
         case 'permisos':
 		//Obtenemos todos los permisos de la tabla permisos
-		require_once "../modelos/Permiso.php";
-		$permiso = new Permiso();
-    $answer = $permiso->listar();
-     #endregion
-     while ($reg = $answer->fetch_object())
-     {
-      echo '<li> <input type="checkbox"  name="permiso[]" value="'.$reg->idpermiso.'">'.$reg->nombre.'</li>';
-     }
+            require_once "../modelos/Permiso.php";
+            $permiso = new Permiso();
+            $answer = $permiso->listar();
+            //Obtener los permisos asignado al usuario
+            $id=$_GET['id'];
+            $marcados = $usuario->listarmarcados($id);
+            //Declaramos el array para almacenar todos los permisos marcados
+            $valores=array();
+
+            //Almacenar los permisos asignados al usuario en el array
+            while ($per = $marcados->fetch_object())
+            {
+              array_push($valores,$per->idpermiso);
+            }
+            //Mostramos la lista de permisos en la vista y si están o no marcados
+            while ($reg = $answer->fetch_object())
+             {
+              $sw=in_array($reg->idpermiso,$valores)?'checked':'';
+              echo '<li> <input type="checkbox" '.$sw.'  name="permiso[]" value="'.$reg->idpermiso.'">'.$reg->nombre.'</li>';
+             }
     break;
+            case 'verificar':
+                $logina=$_POST['logina'];
+                $clavea=$_POST['clavea'];
+
+            //Hash SHA256 en la contraseña
+            $clavehash=hash("SHA256",$clavea);
+
+            $answer=$usuario->verificar($logina, $clavehash);
+
 }

@@ -11,9 +11,9 @@ function init() {
     
     $("#imagenmuestra").hide();
 
-    // mostramos los permisos
-    $.post("../ajax/usuario.php?op=permisos",function(r){
-         $("#permisos").html(r);
+    //Mostramos los permisos
+    $.post("../ajax/usuario.php?op=permisos&id=",function(r){
+        $("#permisos").html(r);
     });
 }
 // funcion limpiar
@@ -128,7 +128,11 @@ function mostrar(idusuario) {
 		$("#imagenmuestra").attr("src","../files/usuarios/"+data.imagen);
 		$("#imagenactual").val(data.imagen);
 		$("#idusuario").val(data.idusuario);
-    })
+    });
+    //Mostramos los permisos
+    $.post("../ajax/usuario.php?op=permisos&id="+idusuario,function(r){
+        $("#permisos").html(r);
+    });
 }
 // funcion desactivar registos
 function desactivar(idusuario) {

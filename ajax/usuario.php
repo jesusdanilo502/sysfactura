@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../modelos/Usuario.php";
 
 
@@ -93,37 +94,78 @@ switch($_GET["op"]){
           echo json_encode($result);
          
         break;
-
-        case 'permisos':
+    case 'permisos':
 		//Obtenemos todos los permisos de la tabla permisos
-            require_once "../modelos/Permiso.php";
-            $permiso = new Permiso();
-            $answer = $permiso->listar();
-            //Obtener los permisos asignado al usuario
-            $id=$_GET['id'];
-            $marcados = $usuario->listarmarcados($id);
+        require_once "../modelos/Permiso.php";
+        $permiso = new Permiso();
+        $answer = $permiso->listar();
+        //Obtener los permisos asignado al usuario
+        $id=$_GET['id'];
+        $marcados = $usuario->listarmarcados($id);
+        //Declaramos el array para almacenar todos los permisos marcados
+        $valores=array();
+
+        //Almacenar los permisos asignados al usuario en el array
+        while ($per = $marcados->fetch_object())
+        {
+          array_push($valores,$per->idpermiso);
+        }
+        //Mostramos la lista de permisos en la vista y si están o no marcados
+        while ($reg = $answer->fetch_object())
+         {
+          $sw=in_array($reg->idpermiso,$valores)?'checked':'';
+          echo '<li> <input type="checkbox" '.$sw.'  name="permiso[]" value="'.$reg->idpermiso.'">'.$reg->nombre.'</li>';
+         }
+    break;
+    case 'verificar':
+        $logina=$_POST['logina'];
+        $clavea=$_POST['clavea'];
+
+        //Hash SHA256 en la contraseña
+        $clavehash=hash("SHA256",$clavea);
+
+        $answer=$usuario->verificar($logina, $clavehash);
+
+        $fetch = $answer->fetch_object();
+
+        if (isset($fetch)) {
+            //Declaramos las variables de sesión
+            $_SESSION['idusuario'] = $fetch->idusuario;
+            $_SESSION['nombre'] = $fetch->nombre;
+            $_SESSION['imagen'] = $fetch->imagen;
+            $_SESSION['login'] = $fetch->login;
+
+            //Obtenemos los permisos del usuario
+            $marcados = $usuario->listarmarcados($fetch->idusuario);
+
             //Declaramos el array para almacenar todos los permisos marcados
             $valores=array();
 
-            //Almacenar los permisos asignados al usuario en el array
+            //Almacenamos los permisos marcados en el array
             while ($per = $marcados->fetch_object())
             {
-              array_push($valores,$per->idpermiso);
+                array_push($valores, $per->idpermiso);
             }
-            //Mostramos la lista de permisos en la vista y si están o no marcados
-            while ($reg = $answer->fetch_object())
-             {
-              $sw=in_array($reg->idpermiso,$valores)?'checked':'';
-              echo '<li> <input type="checkbox" '.$sw.'  name="permiso[]" value="'.$reg->idpermiso.'">'.$reg->nombre.'</li>';
-             }
+            //Determinamos los accesos del usuario
+            in_array(1,$valores)?$_SESSION['escritorio']=1:$_SESSION['escritorio']=0;
+            in_array(2,$valores)?$_SESSION['almacen']=1:$_SESSION['almacen']=0;
+            in_array(3,$valores)?$_SESSION['compras']=1:$_SESSION['compras']=0;
+            in_array(4,$valores)?$_SESSION['ventas']=1:$_SESSION['ventas']=0;
+            in_array(5,$valores)?$_SESSION['acceso']=1:$_SESSION['acceso']=0;
+            in_array(6,$valores)?$_SESSION['consultac']=1:$_SESSION['consultac']=0;
+            in_array(7,$valores)?$_SESSION['consultav']=1:$_SESSION['consultav']=0;
+        }
+        echo json_encode($fetch);
     break;
-            case 'verificar':
-                $logina=$_POST['logina'];
-                $clavea=$_POST['clavea'];
+    case 'salir':
+    // limpiamos las variables de sesión
+        session_unset();
 
-            //Hash SHA256 en la contraseña
-            $clavehash=hash("SHA256",$clavea);
+    // destruimos la session
+      session_destroy();
 
-            $answer=$usuario->verificar($logina, $clavehash);
+    // redireccionamos al login
 
+      header("Location: ../index.php");
+    break;
 }

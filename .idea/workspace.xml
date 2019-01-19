@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1714e59-4709-4ab3-8b35-19a812d9d4eb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vistas/noacceso.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vistas/scripts/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/usuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelos/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/modelos/Usuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/articulo.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/articulo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/categoria.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/permiso.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/permiso.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/proveedor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/proveedor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vistas/usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/usuario.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax/ingreso.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modelos/Ingreso.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modelos/Venta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vistas/cliente.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vistas/ingreso.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vistas/scripts/cliente.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vistas/scripts/ingreso.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vistas/venta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modelos/Articulo.php" beforeDir="false" afterPath="$PROJECT_DIR$/modelos/Articulo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vistas/scripts/articulo.js" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/scripts/articulo.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +25,7 @@
     <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
+    <option name="GROUP_CONTENTS" value="true" />
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
@@ -57,26 +56,32 @@
       <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bb76fc8b-7c48-4a6d-84c8-6b01f338f1df/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="221">
+              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usuario.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/usuario.php">
+      <file leaf-file-name="Venta.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modelos/Venta.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="166" column="25" selection-start-line="166" selection-start-column="25" selection-end-line="166" selection-end-column="25" />
+            <state relative-caret-position="501">
+              <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vistas/header.php">
+      <file leaf-file-name="venta.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vistas/venta.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="78" column="59" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
+            <state relative-caret-position="114">
+              <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#thead#0;n#table#0;n#div#7;n#form#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="e#8341#8348#1#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,6 +99,7 @@
     <findStrings>
       <find>listar</find>
       <find>lista</find>
+      <find>idprove</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,13 +108,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vistas/scripts/articulo.js" />
         <option value="$PROJECT_DIR$/vistas/scripts/usuario.js" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/modelos/Usuario.php" />
         <option value="$PROJECT_DIR$/vistas/scripts/login.js" />
         <option value="$PROJECT_DIR$/vistas/login.html" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/bb76fc8b-7c48-4a6d-84c8-6b01f338f1df/console.sql" />
         <option value="$PROJECT_DIR$/vistas/noacceso.php" />
         <option value="$PROJECT_DIR$/vistas/categoria.php" />
         <option value="$PROJECT_DIR$/vistas/articulo.php" />
@@ -117,6 +121,17 @@
         <option value="$PROJECT_DIR$/vistas/usuario.php" />
         <option value="$PROJECT_DIR$/ajax/usuario.php" />
         <option value="$PROJECT_DIR$/vistas/header.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/bb76fc8b-7c48-4a6d-84c8-6b01f338f1df/console.sql" />
+        <option value="$PROJECT_DIR$/modelos/Ingreso.php" />
+        <option value="$PROJECT_DIR$/vistas/scripts/articulo.js" />
+        <option value="$PROJECT_DIR$/vistas/scripts/ingreso.js" />
+        <option value="$PROJECT_DIR$/ajax/ingreso.php" />
+        <option value="$PROJECT_DIR$/vistas/ingreso.php" />
+        <option value="$PROJECT_DIR$/vistas/cliente.php" />
+        <option value="$PROJECT_DIR$/vistas/scripts/cliente.js" />
+        <option value="$PROJECT_DIR$/modelos/Articulo.php" />
+        <option value="$PROJECT_DIR$/modelos/Venta.php" />
+        <option value="$PROJECT_DIR$/vistas/venta.php" />
       </list>
     </option>
   </component>
@@ -236,7 +251,8 @@
       <updated>1546787185728</updated>
       <workItem from="1546787188225" duration="4177000" />
       <workItem from="1547474969280" duration="3595000" />
-      <workItem from="1547733868227" duration="25676000" />
+      <workItem from="1547733868227" duration="25982000" />
+      <workItem from="1547898297466" duration="16807000" />
     </task>
     <task id="LOCAL-00001" summary="cambios que no habian sido guardados">
       <created>1546787338674</created>
@@ -263,20 +279,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33448000" />
+    <option name="totallyTimeSpent" value="50561000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" weight="0.32933104" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.30874786" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32933104" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.2555746" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32933104" />
       <window_info anchor="bottom" id="Database Console" order="7" sideWeight="0.49924356" weight="0.32933104" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4987593" visible="true" weight="0.20272315" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987593" visible="true" weight="0.20574887" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
       <window_info id="Structure" order="1" sideWeight="0.5012407" side_tool="true" weight="0.24962178" />
@@ -348,10 +363,31 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="22" />
+      <option name="time" value="35" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bb76fc8b-7c48-4a6d-84c8-6b01f338f1df/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2822">
+          <caret line="166" column="25" selection-start-line="166" selection-start-column="25" selection-end-line="166" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bb76fc8b-7c48-4a6d-84c8-6b01f338f1df/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -405,11 +441,6 @@
     <entry file="file://$PROJECT_DIR$/modelos/Categoria.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/conexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-529" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/global.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -417,38 +448,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/categoria.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vistas/scripts/categoria.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="127" column="6" lean-forward="true" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modelos/Articulo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/scripts/articulo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="39" column="49" lean-forward="true" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax/articulo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -465,9 +468,6 @@
           <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modelos/Permiso.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/vistas/footer.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -494,13 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="13" selection-start-column="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modelos/Usuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -539,34 +532,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/categoria.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/files/usuarios/1547863913.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bb76fc8b-7c48-4a6d-84c8-6b01f338f1df/console.sql">
+    <entry file="file://$PROJECT_DIR$/vistas/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="276">
+          <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax/usuario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
+        <state relative-caret-position="334">
           <caret line="166" column="25" selection-start-line="166" selection-start-column="25" selection-end-line="166" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/header.php">
+    <entry file="file://$PROJECT_DIR$/modelos/Usuario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="78" column="59" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
+        <state relative-caret-position="195">
+          <caret line="80" column="5" lean-forward="true" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/categoria.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/categoria.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="10" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/scripts/articulo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="125" column="36" lean-forward="true" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/articulo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/conexion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/ingreso.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="55" column="53" lean-forward="true" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#thead#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/ingreso.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="62" column="46" lean-forward="true" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/scripts/ingreso.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/Permiso.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/Ingreso.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="40" column="33" lean-forward="true" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/scripts/cliente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="125" column="28" lean-forward="true" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/cliente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="112" column="2" lean-forward="true" selection-start-line="112" selection-start-column="2" selection-end-line="112" selection-end-column="2" />
+          <folding>
+            <element signature="e#2289#2311#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/Persona.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-445" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/Articulo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bb76fc8b-7c48-4a6d-84c8-6b01f338f1df/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/Venta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/venta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#thead#0;n#table#0;n#div#7;n#form#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#8341#8348#1#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

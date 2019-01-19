@@ -9,27 +9,17 @@ function init(){
     {
         guardaryeditar(e);
     })
-
-    //Cargamos los items al select categoria
-    $.post("../ajax/articulo.php?op=selectCategoria", function(r){
-        $("#idcategoria").html(r);
-        $('#idcategoria').selectpicker('refresh');
-
-    });
-    $("#imagenmuestra").hide();
 }
 
 //Función limpiar
 function limpiar()
 {
-    $("#codigo").val("");
     $("#nombre").val("");
-    $("#descripcion").val("");
-    $("#stock").val("");
-    $("#imagenmuestra").attr("src","");
-    $("#imagenactual").val("");
-    $("#print").hide();
-    $("#idarticulo").val("");
+    $("#num_documento").val("");
+    $("#direccion").val("");
+    $("#telefono").val("");
+    $("#email").val("");
+    $("#idpersona").val("");
 }
 
 //Función mostrar formulario
@@ -74,7 +64,7 @@ function listar()
             ],
             "ajax":
                 {
-                    url: '../ajax/articulo.php?op=listar',
+                    url: '../ajax/persona.php?op=listarc',
                     type : "get",
                     dataType : "json",
                     error: function(e){
@@ -95,7 +85,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../ajax/articulo.php?op=guardaryeditar",
+        url: "../ajax/persona.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -112,68 +102,38 @@ function guardaryeditar(e)
     limpiar();
 }
 
-function mostrar(idarticulo)
+function mostrar(idpersona)
 {
-    $.post("../ajax/articulo.php?op=mostrar",{idarticulo : idarticulo}, function(data, status)
+    $.post("../ajax/persona.php?op=mostrar",{idpersona : idpersona}, function(data, status)
     {
         data = JSON.parse(data);
         mostrarform(true);
 
-        $("#idcategoria").val(data.idcategoria);
-        $('#idcategoria').selectpicker('refresh');
-        $("#codigo").val(data.codigo);
         $("#nombre").val(data.nombre);
-        $("#stock").val(data.stock);
-        $("#descripcion").val(data.descripcion);
-        $("#imagenmuestra").show();
-        $("#imagenmuestra").attr("src","../files/articulos/"+data.imagen);
-        $("#imagenactual").val(data.imagen);
-        $("#idarticulo").val(data.idarticulo);
-        generarbarcode();
+        $("#tipo_documento").val(data.tipo_documento);
+        $("#tipo_documento").selectpicker('refresh');
+        $("#num_documento").val(data.num_documento);
+        $("#direccion").val(data.direccion);
+        $("#telefono").val(data.telefono);
+        $("#email").val(data.email);
+        $("#idpersona").val(data.idpersona);
+
 
     })
 }
 
-//Función para desactivar registros
-function desactivar(idarticulo)
+//Función para eliminar registros
+function eliminar(idpersona)
 {
-    bootbox.confirm("¿Está Seguro de desactivar el artículo?", function(result){
+    bootbox.confirm("¿Está Seguro de eliminar el cliente?", function(result){
         if(result)
         {
-            $.post("../ajax/articulo.php?op=desactivar", {idarticulo : idarticulo}, function(e){
+            $.post("../ajax/persona.php?op=eliminar", {idpersona : idpersona}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             });
         }
     })
-}
-
-//Función para activar registros
-function activar(idarticulo)
-{
-    bootbox.confirm("¿Está Seguro de activar el Artículo?", function(result){
-        if(result)
-        {
-            $.post("../ajax/articulo.php?op=activar", {idarticulo : idarticulo}, function(e){
-                bootbox.alert(e);
-                tabla.ajax.reload();
-            });
-        }
-    })
-}
-
-//función para generar el código de barras
-function generarbarcode()
-{
-    codigo=$("#codigo").val();
-    JsBarcode("#barcode", codigo);
-    $("#print").show();
-}
-
-//Función para imprimir el Código de barras
-function imprimir()
-{
-    $("#print").printArea();
 }
 
 init();

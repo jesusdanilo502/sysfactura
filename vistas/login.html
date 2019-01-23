@@ -23,13 +23,17 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="hold-transition login-page">
+  <body class="hold-transition login-page" style="
+    background: url(../public/img/tools.jpg);
+">
     <div class="login-box">
       <div class="login-logo">
-        <a href="../../index2.html"><b>ADVentas</b></a>
+        <a href="../../index2.html">
+            <img src="../public/img/logorh.png">
+        </a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Ingrese sus datos de Acceso</p>
+        <h2><p class="login-box-msg">Datos de Acceso</p></h2>
         <form  method="post" id="frmAcceso">
           <div class="form-group has-feedback">
             <input type="text" class="form-control" id="logina" name="logina" placeholder="Usuario">
@@ -40,9 +44,9 @@
             <span class="fa fa-key form-control-feedback"></span>
           </div>
           <div class="row">
-            <div class="col-xs-8">
+            <div class="col-xs-2">
             </div><!-- /.col -->
-            <div class="col-xs-4">
+            <div class="col-xs-8">
               <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
             </div><!-- /.col -->
           </div>

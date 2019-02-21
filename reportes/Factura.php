@@ -388,14 +388,7 @@ function lineVert( $tab )
 	return $maxSize;
 }
 
-// add a line to the invoice/estimate
-/*    $ligne = array( "REFERENCE"    => $prod["ref"],
-                      "DESIGNATION"  => $libelle,
-                      "QUANTITE"     => sprintf( "%.2F", $prod["qte"]) ,
-                      "P.U. HT"      => sprintf( "%.2F", $prod["px_unit"]),
-                      "MONTANT H.T." => sprintf ( "%.2F", $prod["qte"] * $prod["px_unit"]) ,
-                      "TVA"          => $prod["tva"] );
-*/
+
 function addLine( $ligne, $tab )
 {
 	global $colonnes, $format;
@@ -440,33 +433,13 @@ function addCadreTVAs($monto)
 	$y1  = $this->h - 40;
 	$y2  = $y1+20;
 	$this->RoundedRect($r1, $y1, ($r2 - $r1), ($y2-$y1), 2.5, 'D');
-	//$this->Line( $r1, $y1+4, $r2, $y1+4);
-	//$this->Line( $r1+5,  $y1+4, $r1+5, $y2); // avant BASES HT
-	//$this->Line( $r1+27, $y1, $r1+27, $y2);  // avant REMISE
-	//$this->Line( $r1+43, $y1, $r1+43, $y2);  // avant MT TVA
-	//$this->Line( $r1+63, $y1, $r1+63, $y2);  // avant % TVA
-	//$this->Line( $r1+75, $y1, $r1+75, $y2);  // avant PORT
-	//$this->Line( $r1+91, $y1, $r1+91, $y2);  // avant TOTAUX
+	
 	$this->SetXY( $r1+9, $y1+3);
 	$this->Cell(10,4, "IMPORTE TOTAL CON LETRA");
 	$this->SetFont( "Arial", "", 8);
 	$this->SetXY( $r1+9, $y1+7);
 	$this->MultiCell(100,4, $monto);
-	//$this->SetX( $r1+29 );
-	//$this->Cell(10,4, "REMISE");
-	//$this->SetX( $r1+48 );
-	//$this->Cell(10,4, "MT TVA");
-	//$this->SetX( $r1+63 );
-	//$this->Cell(10,4, "% TVA");
-	//$this->SetX( $r1+78 );
-	//$this->Cell(10,4, "PORT");
-	//$this->SetX( $r1+100 );
-	//$this->Cell(10,4, "TOTAUX");
-	//$this->SetFont( "Arial", "B", 6);
-	//$this->SetXY( $r1+93, $y2 - 8 );
-	//$this->Cell(6,0, "H.T.   :");
-	//$this->SetXY( $r1+93, $y2 - 3 );
-	//$this->Cell(6,0, "T.V.A. :");
+	
 }
 
 function addCadreEurosFrancs($impuesto)
@@ -494,39 +467,21 @@ function addCadreEurosFrancs($impuesto)
 	$this->Cell(20,4, "TOTAL A PAGAR", 0, 0, "C");
 }
 
-// remplit les cadres TVA / Totaux et la remarque
-// params  = array( "RemiseGlobale" => [0|1],
-//                      "remise_tva"     => [1|2...],  // {la remise s'applique sur ce code TVA}
-//                      "remise"         => value,     // {montant de la remise}
-//                      "remise_percent" => percent,   // {pourcentage de remise sur ce montant de TVA}
-//                  "FraisPort"     => [0|1],
-//                      "portTTC"        => value,     // montant des frais de ports TTC
-//                                                     // par defaut la TVA = 19.6 %
-//                      "portHT"         => value,     // montant des frais de ports HT
-//                      "portTVA"        => tva_value, // valeur de la TVA a appliquer sur le montant HT
-//                  "AccompteExige" => [0|1],
-//                      "accompte"         => value    // montant de l'acompte (TTC)
-//                      "accompte_percent" => percent  // pourcentage d'acompte (TTC)
-//                  "Remarque" => "texte"              // texte
-// tab_tva = array( "1"       => 19.6,
-//                  "2"       => 5.5, ... );
-// invoice = array( "px_unit" => value,
-//                  "qte"     => qte,
-//                  "tva"     => code_tva );
+
 function addTVAs( $igv, $total,$moneda )
 {
-	$this->SetFont('Arial','',8);
+	$this->SetFont('Arial','B',8);
 
 	$re  = $this->w - 30;
 	$rf  = $this->w - 29;
 	$y1  = $this->h - 40;
-	$this->SetFont( "Arial", "", 8);
+	$this->SetFont( "Arial", "B", 8);
 	$this->SetXY( $re, $y1+5 );
-	$this->Cell( 17,4, $moneda.sprintf("%0.2F", $total-($total*$igv/($igv+100))), '', '', 'R');
+	$this->Cell( 17,4, $moneda.sprintf( number_format( $total-($total*$igv/($igv+100)))), '', '', 'R');
 	$this->SetXY( $re, $y1+10 );
-	$this->Cell( 17,4, $moneda.sprintf("%0.2F", ($total*$igv/($igv+100))), '', '', 'R');
+	$this->Cell( 17,4, $moneda.sprintf(number_format( ($total*$igv/($igv+100)))), '', '', 'R');
 	$this->SetXY( $re, $y1+14.8 );
-	$this->Cell( 17,4, $moneda.sprintf("%0.2F", $total), '', '', 'R');
+	$this->Cell( 17,4, $moneda.sprintf(number_format( $total)), '', '', 'R');
 	
 }
 

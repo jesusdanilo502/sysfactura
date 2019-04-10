@@ -67,10 +67,10 @@ switch ($_GET["op"]){
  				"1"=>$reg->nombre,
  				"2"=>$reg->categoria,
  				"3"=>$reg->codigo,
- 				"4"=>$reg->stock,
+ 				"4"=>($reg->stock)==0?'<span class="label bg-red">Agotado</span>':$reg->stock,
  				"5"=>"<img src='../files/articulos/".$reg->imagen."' height='50px' width='50px' >",
- 				"6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
- 				'<span class="label bg-red">Desactivado</span>'
+ 				"6"=>($reg->condicion)?'<span class="">Activado</span>':
+ 				'<span class="">Inactivo</span>'
  				);
  		}
  		$results = array(

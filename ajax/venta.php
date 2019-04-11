@@ -130,7 +130,7 @@ switch ($_GET["op"]){
  				"1"=>$reg->nombre,
  				"2"=>$reg->categoria,
  				"3"=>$reg->codigo,
- 				"4"=>$reg->stock,
+ 				"4"=>($reg->stock)==0?'<span class="label bg-red">Agotado</span>':$reg->stock,
  				"5"=>$reg->precio_venta,
  				"6"=>"<img src='../files/articulos/".$reg->imagen."' height='50px' width='50px' >"
  				);

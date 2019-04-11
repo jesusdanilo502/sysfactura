@@ -109,7 +109,7 @@ if ($_SESSION['escritorio']==1)
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="box box-primary">
                                     <div class="box-header with-border">
-                                        Ventas de los últimos 12 meses
+                                        Ventas Diarias
                                     </div>
                                     <div class="box-body">
                                         <canvas id="ventas" width="400" height="300"></canvas>
@@ -190,7 +190,7 @@ require 'footer.php';
         data: {
             labels: [<?php echo $fechasv; ?>],
             datasets: [{
-                label: 'Ventas en S/ de los últimos 12 Meses',
+                label: 'Ventas Del Día',
                 data: [<?php echo $totalesv; ?>],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

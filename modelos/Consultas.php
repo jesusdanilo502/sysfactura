@@ -26,16 +26,34 @@ Class Consultas
         FROM venta v 
         INNER JOIN persona p ON v.idcliente=p.idpersona 
         INNER JOIN usuario u ON v.idusuario=u.idusuario 
-        WHERE DATE(v.fecha_hora)>='$fecha_inicio' AND DATE(v.fecha_hora)<='$fecha_fin' AND v.idcliente='$idcliente'";
+        WHERE DATE(v.fecha_hora)>='$fecha_inicio' AND DATE(v.fecha_hora)<='$fecha_fin' or v.idcliente='$idcliente'";// se quita sentencia AND por OR para no buscar por cliente
         return ejecutarConsulta($sql);
     }
-
+    // compras que se ha echos diarias
     public function totalcomprahoy()
     {
         $sql="SELECT IFNULL(SUM(total_compra),0) as total_compra 
         FROM ingreso 
         WHERE DATE(fecha_hora)=curdate()";
         return ejecutarConsulta($sql);
+    }
+   // consulta utilidades mes a mes
+    public function utilidades(){
+
+        $util = "SELECT DATE_FORMAT(fecha,\"%Y\") as año, DATE_FORMAT(fecha,\"%b\") as mes,
+        sum(precio_compra * cantidad) as suma_compras, sum(precio_venta * cantidad) as suma_ventas
+        FROM detalle_venta
+        GROUP BY MONTH(fecha)";
+        return ejecutarConsulta($util);
+    }
+
+    // consulta utilidad mes actual
+    public function utilidad_mes(){
+
+        $util_mes = "select  sum(precio_compra * cantidad) as compras,sum(precio_venta *cantidad ) as ventas
+        from detalle_venta  
+        where month(fecha) = MONTH(CURRENT_DATE())";
+        return ejecutarConsulta($util_mes);
     }
 
     public function totalventahoy()
@@ -57,6 +75,18 @@ Class Consultas
         $sql="SELECT DATE_FORMAT(fecha_hora,'%d') as fecha,SUM(total_venta) as total 
         FROM venta GROUP by DAY(fecha_hora) ORDER BY fecha_hora DESC limit 0,7";
         return ejecutarConsulta($sql);
+    }
+
+    public function  mas_vendidos()
+    {
+       $total_vendidos= "select articulo, cantidades from
+        (
+        select a.nombre as articulo,sum(dv.cantidad) as cantidades
+        from detalle_venta as dv inner join articulo a on a.idarticulo=dv.idarticulo
+        group by a.idarticulo) as v
+	    group by articulo 
+        order by cantidades desc limit 0,5";
+       return ejecutarConsulta($total_vendidos);
     }
 }
 

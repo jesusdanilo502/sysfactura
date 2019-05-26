@@ -67,5 +67,29 @@ switch ($_GET["op"]){
         echo json_encode($results);
 
         break;
+
+        case 'utilidad':
+
+            $rspta=$consulta->utilidades();
+            //Vamos a declarar un array
+            $data= Array();
+
+            while ($reg=$rspta->fetch_object()){
+                $data[]=array(
+                    "0"=>$reg->año,
+                    "1"=>$reg->mes,
+                    "2"=>'$ '.number_format($reg->suma_compras),
+                    "3"=>'$ '.number_format($reg->suma_ventas),
+                    "4"=>'$ '.number_format($reg->suma_ventas - $reg->suma_compras)
+                );
+            }
+            $results = array(
+                "sEcho"=>1, //Información para el datatables
+                "iTotalRecords"=>count($data), //enviamos el total registros al datatable
+                "iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+                "aaData"=>$data);
+            echo json_encode($results);
+
+            break;
 }
 ?>

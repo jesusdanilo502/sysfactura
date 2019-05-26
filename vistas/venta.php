@@ -101,11 +101,13 @@ if ($_SESSION['ventas']==1)
                                     <th>Artículo</th>
                                     <th>Cantidad</th>
                                     <th>Precio Venta</th>
+                                    <th></th>
                                     <th>Descuento</th>
                                     <th>Subtotal</th>
                                 </thead>
                                 <tfoot>
                                     <th>TOTAL</th>
+                                    <th></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>

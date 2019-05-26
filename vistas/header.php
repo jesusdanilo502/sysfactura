@@ -185,12 +185,16 @@ if(strlen(session_id()) <1)
               if ($_SESSION['consultav']==1) {
                   echo '<li class="treeview">
               <a href="#">
-                <i class="fa fa-bar-chart"></i> <span>Consulta Ventas</span>
+                <i class="fa fa-bar-chart"></i> <span>Ventas y Utilidades</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+                <li><a href="utilidad.php"><i class="fa fa-circle-o"></i> Utiliades x Mes</a></li>                
+              </ul>
+              <ul class="treeview-menu">
                 <li><a href="ventafechacliente.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>                
               </ul>
+              
             </li>';
               }
               ?>

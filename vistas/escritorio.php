@@ -15,9 +15,18 @@ if ($_SESSION['escritorio']==1)
 {
     require_once "../modelos/Consultas.php";
     $consulta = new Consultas();
+
     $rsptac = $consulta->totalcomprahoy();
     $regc=$rsptac->fetch_object();
     $totalc=$regc->total_compra;
+
+
+    /* ganacia actual del mes */
+    $util_mes = $consulta->utilidad_mes();
+    $regc=$util_mes->fetch_object();
+    $g_mes_total= $regc->ventas - $regc->compras;
+
+            /*---------------------------*/
 
     $rsptav = $consulta->totalventahoy();
     $regv=$rsptav->fetch_object();
@@ -49,6 +58,19 @@ if ($_SESSION['escritorio']==1)
     $fechasv=substr($fechasv, 0, -1);
     $totalesv=substr($totalesv, 0, -1);
 
+    //datos para productos mas vendidos
+    $ventas13 = $consulta->mas_vendidos();
+    $productosv='';
+    $totalesv='';
+    while ($regfechav= $ventas13->fetch_object()) {
+        $productosv=$fechasv.'"'.$regfechav->articulo .'",';
+        $totalesv=$totalesv.$regfechav->cantidades .',';
+    }
+
+    //Quitamos la última coma
+    $productosv=substr($productosv, 0, -1);
+    $totalesv=substr($totalesv, 0, -1);
+
     ?>
     <!--Contenido-->
     <!-- Content Wrapper. Contains page content -->
@@ -70,21 +92,21 @@ if ($_SESSION['escritorio']==1)
                                 <div class="small-box bg-aqua">
                                     <div class="inner">
                                         <h4 style="font-size:17px;">
-                                            <strong>$ <?php echo $totalc; ?></strong>
+                                            <strong><?php echo '$ '.number_format($g_mes_total); ?></strong>
                                         </h4>
-                                        <p>Compras</p>
+                                        <p>Ganancias Mes Actual <?php  echo  date("F") ." ". date("d")   ?></p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="ingreso.php" class="small-box-footer">Compras <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="utilidad.php" class="small-box-footer">Ver Todos los Meses <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="small-box bg-green">
                                     <div class="inner">
                                         <h4 style="font-size:17px;">
-                                            <strong>$ <?php echo $totalv; ?></strong>
+                                            <strong> <?php echo '$ '.number_format($totalv); ?></strong>
                                         </h4>
                                         <p>Ventas</p>
                                     </div>
@@ -117,6 +139,21 @@ if ($_SESSION['escritorio']==1)
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="panel-body">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                        Compras de los últimos 10 días
+                                    </div>
+                                    <div class="box-body">
+                                        <canvas id="productos" width="400" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!--Fin centro -->
                     </div><!-- /.box -->
                 </div><!-- /.col -->
@@ -229,10 +266,34 @@ require 'footer.php';
             }
         }
     });
+
+</script>
+<script>
+
+    var ctx = document.getElementById("productos").getContext('2d');
+    var ventas = new Chart(ctx, {
+        type: 'pie', //Gráfica circular
+        data: {
+            labels: [<?php echo $productosv; ?>], //Etiquetas
+            datasets: [
+                {
+                    data: [80, 15, 5], //Cantidad de la ¿rebanada?
+                    backgroundColor: [ //Color del segmento
+                        "#8BC34A",
+                        "#03A9F4",
+                        "#FFCE56"
+                    ],
+                    hoverBackgroundColor: [ //Color al hacer hover al segmento
+                        "#7CB342",
+                        "#039BE5",
+                        "#FFA000"
+                    ]
+                }]
+        }
+    });
 </script>
 
 
-</script>
 
 
 <?php

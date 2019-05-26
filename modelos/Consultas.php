@@ -86,7 +86,7 @@ Class Consultas
         group by a.idarticulo) as v
 	    group by articulo 
         order by cantidades desc limit 0,5";
-       return ejecutarConsulta($total_vendidos);
+        return ejecutarConsulta($total_vendidos);
     }
 }
 
